@@ -43,6 +43,25 @@ h1, .addbook {
     grid-template-rows: repeat(4, minmax(0, 1fr));
     justify-items:center;
 }
+
+.book-title {
+  grid-row-start: 1;
+  grid-row-end: 2;
+}
+
+.book-author {
+  grid-row-start: 2;
+  grid-row-end: 3;
+}
+
+.book-pages {
+  grid-row-start: 3;
+  grid-row-end: 4;
+}
+.book-buttons {
+  grid-row-start: 4;
+  grid-row-end: 5;
+}
 .card > * {
   padding: 0.3rem;
   overflow: auto;

@@ -4,11 +4,15 @@ let book1 = new Book("harry potter", "jk rowling", 333, "not read")
 let book2 = new Book("harry potter 2", "jk rowling", 333, "not read")
 addBookToLibrary(book1)
 addBookToLibrary(book2)
+
+
 // create a dialog to add a new book
 const dialog = document.querySelector("#add-book-dialog");
 const addBookButton = document.querySelector(".addbook");
 const closeDialogButton = document.querySelector(".close-dialog");
 const submitBookButton = document.querySelector("#submit-book")
+
+// this button opens up the dialog for user to add a new book to the library
 addBookButton.addEventListener("click", () => {
     let title = document.getElementById("title");
     let author = document.getElementById("author");
@@ -23,6 +27,7 @@ closeDialogButton.addEventListener("click", () => {
     dialog.close()
 })
 
+// when user presses the submit button on the dialog, it will get the info of each input and create a new book object and add it to myLibrary array
 submitBookButton.addEventListener("click", function(e) {
     const title = document.getElementById("title").value;
     const author = document.getElementById("author").value;
@@ -36,7 +41,7 @@ submitBookButton.addEventListener("click", function(e) {
     dialog.close();
 })
 
-
+// book constructor function to create new book objects to be added to myLibrary array
 function Book(title, author, pages, status){
     this.title = title;
     this.author = author;

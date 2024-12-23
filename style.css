@@ -1,0 +1,111 @@
+:root {
+    font-size: 20px;
+    box-sizing: border-box;
+}
+
+* {
+    font-family: Verdana, Geneva, Tahoma, sans-serif; 
+    border: 1px solid;
+}
+
+body {
+  background: rgb(233, 224, 224);
+  display: grid;
+  grid-template-rows: 0.5fr 0.5fr 3fr;
+  justify-content: center;
+  align-items: center;
+}
+h1, .addbook {
+  justify-self: center;
+}
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  padding: 0.3rem;
+  justify-content: center;
+}
+.card {
+    background: rgb(204,204,204);
+    background: -moz-linear-gradient(left, rgb(204,204,204) 0%, rgb(237,237,237) 22%, rgb(255,255,255) 100%);
+    background: -webkit-linear-gradient(left, rgb(204,204,204) 0%, rgb(237,237,237) 22%, rgb(255,255,255) 100%);
+    background: linear-gradient(to right, rgb(204,204,204) 0%, rgb(237,237,237) 22%, rgb(255,255,255) 100%);
+    height: 10rem;
+    width: 20rem;
+    display: flex;
+    border-radius: 1rem;
+    flex-wrap: wrap;
+    align-items: center;
+    word-wrap: break-word;
+    padding-top: 1rem;
+    border: 1px solid;
+    display: grid;
+    grid-template-rows: repeat(4, minmax(0, 1fr));
+    justify-items:center;
+}
+.card > * {
+  padding: 0.3rem;
+  overflow: auto;
+  width: 90%;
+  height: 90%;
+  display: flex;
+  align-items: center;
+
+}
+.card-buttons {
+  display: flex;
+  justify-content: space-between;
+}
+
+#add-book-dialog::backdrop {
+    /* background-image: linear-gradient(
+      45deg,
+      magenta,
+      rebeccapurple,
+      dodgerblue,
+      green
+    );
+    opacity: 0.75; */
+    background: black;
+  }
+
+  dialog {
+    width: 30rem;
+    height: 10rem;
+  }
+
+  .addbook, .card-button {
+    box-shadow:inset 0px 1px 3px 0px #91b8b3;
+    background:linear-gradient(to bottom, #768d87 5%, #6c7c7c 100%);
+    background-color:#768d87;
+    border-radius:5px;
+    border:1px solid #566963;
+    display:inline-block;
+    cursor:pointer;
+    color:#ffffff;
+    font-family:Arial;
+    font-size:15px;
+    font-weight:bold;
+    padding:11px 23px;
+    text-decoration:none;
+    text-shadow:0px -1px 0px #2b665e;
+    width: 8rem;
+    height: 2rem;
+  }
+  .addbook:hover, .card-button:hover {
+    background:linear-gradient(to bottom, #6c7c7c 5%, #768d87 100%);
+    background-color:#6c7c7c;
+  }
+  .addbook:active, .card-button:active {
+    position:relative;
+    top:1px;
+  }
+  
+  .card-button {
+    width: 4.3rem;
+    font-size: 0.6rem;
+    height: 1.7rem;
+    text-align: center;
+    
+  }
+          

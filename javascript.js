@@ -1,16 +1,14 @@
+// styling of dialog, and coding of the buttons
+
 const myLibrary = [];
 const container = document.querySelector(".container")
-let book1 = new Book("harry potter", "jk rowling", 333, "not read")
-let book2 = new Book("harry potter 2", "jk rowling", 333, "not read")
-addBookToLibrary(book1)
-addBookToLibrary(book2)
-
-
+console.log(myLibrary)
 // create a dialog to add a new book
 const dialog = document.querySelector("#add-book-dialog");
 const addBookButton = document.querySelector(".addbook");
 const closeDialogButton = document.querySelector(".close-dialog");
-const submitBookButton = document.querySelector("#submit-book")
+const submitBookButton = document.querySelector("#submit-book");
+const deleteBookButton = document.querySelectorAll(".delete-button");
 
 // this button opens up the dialog for user to add a new book to the library
 addBookButton.addEventListener("click", () => {
@@ -35,11 +33,22 @@ submitBookButton.addEventListener("click", function(e) {
     console.log(myLibrary)
     const book = new Book(title, author, pages);
     addBookToLibrary(book);
-    container.innerHTML = ""
     displayBook();
     e.preventDefault();
     dialog.close();
 })
+
+// button that deletes a book from library
+container.addEventListener("click", function (e) {
+    if (e.target.classList.contains("delete-button")) {
+        const bookId = e.target.id;
+        const index = parseInt(bookId.slice(4, bookId.length)); 
+        myLibrary.splice(index, 1); 
+        displayBook(); 
+    }
+});
+
+
 
 // book constructor function to create new book objects to be added to myLibrary array
 function Book(title, author, pages, status){
@@ -63,6 +72,9 @@ function addBookToLibrary(book){
 
 
 function displayBook(){
+    while(container.firstChild) {
+        container.removeChild(container.firstChild);
+    }
     const length = myLibrary.length;
     for (let i = 0; i < length; i++){
         const card = document.createElement("div");
@@ -79,10 +91,10 @@ function displayBook(){
         bookAuthor.setAttribute("class", "book-author");
         bookPages.setAttribute("class", "book-pages");
         bookButtonToggle.setAttribute("class", "card-button");
-        bookButtonDelete.setAttribute("class", "card-button");
+        bookButtonDelete.setAttribute("class", "card-button delete-button");
 
         card.setAttribute("id", `book${i}`);
-        bookButtonDelete.setAttribute("id", "book-delete")
+        bookButtonDelete.setAttribute("id", `book${i}`)
         bookButtonToggle.setAttribute("id", "book-toggle")
         bookTitle.textContent = `Title: ${myLibrary[i].title}`;
         bookAuthor.textContent = `Author: ${myLibrary[i].author}`;
@@ -90,8 +102,8 @@ function displayBook(){
         bookButtonDelete.textContent = "Delete"
         bookButtonToggle.textContent = "Read"
 
-        cardButtons.appendChild(bookButtonDelete);
         cardButtons.appendChild(bookButtonToggle);
+        cardButtons.appendChild(bookButtonDelete);
         card.appendChild(bookTitle);
         card.appendChild(bookAuthor);
         card.appendChild(bookPages);
@@ -100,5 +112,5 @@ function displayBook(){
     
     }
 }
-// create button to add new book
+
 

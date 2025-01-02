@@ -30,7 +30,6 @@ submitBookButton.addEventListener("click", function(e) {
     const title = document.getElementById("title").value;
     const author = document.getElementById("author").value;
     const pages = document.getElementById("pages").value;
-    console.log(myLibrary)
     const book = new Book(title, author, pages);
     addBookToLibrary(book);
     displayBook();
@@ -47,11 +46,33 @@ container.addEventListener("click", function (e) {
         displayBook(); 
     }
 });
+container.addEventListener("click", function (e) {
+    if (e.target.classList.contains("read")) {
+        e.target.setAttribute("class", "card-button read-button not-read");
+        e.target.innerHTML = "not read";
+        const bookId = e.target.id;
+        const index = parseInt(bookId.slice(4, bookId.length)); 
+        myLibrary[index].status = "not read"
+        console.log(myLibrary[index])
+       
 
+    }
+    else if (e.target.classList.contains("not-read")){
+        e.target.setAttribute("class", "card-button read-button read");
+        e.target.innerHTML = "read";
+        const bookId = e.target.id;
+        const index = parseInt(bookId.slice(4, bookId.length)); 
+        myLibrary[index].status = "read"
+        console.log(myLibrary[index])
+        
+
+    }
+    
+});
 
 
 // book constructor function to create new book objects to be added to myLibrary array
-function Book(title, author, pages, status){
+function Book(title, author, pages, status="read"){
     this.title = title;
     this.author = author;
     this.pages = pages;
@@ -90,12 +111,12 @@ function displayBook(){
         bookTitle.setAttribute("class", "book-title");
         bookAuthor.setAttribute("class", "book-author");
         bookPages.setAttribute("class", "book-pages");
-        bookButtonToggle.setAttribute("class", "card-button");
+        bookButtonToggle.setAttribute("class", "card-button read-button read");
         bookButtonDelete.setAttribute("class", "card-button delete-button");
 
         card.setAttribute("id", `book${i}`);
         bookButtonDelete.setAttribute("id", `book${i}`)
-        bookButtonToggle.setAttribute("id", "book-toggle")
+        bookButtonToggle.setAttribute("id", `book${i}`)
         bookTitle.textContent = `Title: ${myLibrary[i].title}`;
         bookAuthor.textContent = `Author: ${myLibrary[i].author}`;
         bookPages.textContent = `Pages: ${myLibrary[i].pages}`;

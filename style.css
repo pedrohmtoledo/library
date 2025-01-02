@@ -92,7 +92,7 @@ h3 {
   align-self: center;
 }
 
-.addbook, .card-button {
+.addbook, .delete-button {
   box-shadow:inset 0px 1px 3px 0px #91b8b3;
   background:linear-gradient(to bottom, #768d87 5%, #6c7c7c 100%);
   background-color:#768d87;
@@ -110,20 +110,59 @@ h3 {
   width: 8rem;
   height: 2rem;
 }
-.addbook:hover, .card-button:hover {
+.addbook:hover, .delete-button:hover {
   background:linear-gradient(to bottom, #6c7c7c 5%, #768d87 100%);
   background-color:#6c7c7c;
 }
-.addbook:active, .card-button:active {
+.delete-button:active {
   position:relative;
   top:1px;
 }
+.read {
+  box-shadow:inset 0px 1px 3px 0px #04ff04;
+  background:linear-gradient(to bottom, #61ee55 5%, #2cf026 100%);
+  background-color:#04ff04;
+  border-radius:5px;
+  border:1px solid #04ff04;
+  display:inline-block;
+  cursor:pointer;
+  color:#ffffff;
+  font-family:Arial;
+  font-size:15px;
+  font-weight:bold;
+  padding:11px 23px;
+  text-decoration:none;
+  text-shadow:0px -1px 0px #04ff04;
+  width: 8rem;
+  height: 2rem;
+}
 
+.not-read {
+  box-shadow:inset 0px 1px 3px 0px #f10202;
+  background:linear-gradient(to bottom, #ec1515 5%, #d12a2a 100%);
+  background-color:#f10202;
+  border-radius:5px;
+  border:1px solid #f10202;
+  display:inline-block;
+  cursor:pointer;
+  color:#ffffff;
+  font-family:Arial;
+  font-size:15px;
+  font-weight:bold;
+  padding:11px 23px;
+  text-decoration:none;
+  text-shadow:0px -1px 0px #f10202;
+  width: 8rem;
+  height: 2rem;
+
+}
 .card-button {
-  width: 4.3rem;
+  width: 4.8rem;
   font-size: 0.6rem;
-  height: 1.7rem;
+  height: 1.8rem;
   text-align: center;
+
   
 }
+
 

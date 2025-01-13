@@ -72,12 +72,15 @@ container.addEventListener("click", function (e) {
 
 
 // book constructor function to create new book objects to be added to myLibrary array
-function Book(title, author, pages, status="read"){
-    this.title = title;
-    this.author = author;
-    this.pages = pages;
-    this.status = status; // create a toggle function for read and not read
-    this.info = () => {
+class  Book {
+    constructor(title, author, pages, status = "read") {
+        this.title = title;
+        this.author = author;
+        this.pages = pages;
+        this.status = status; // create a toggle function for read and not read
+    }
+   
+    info(){
         return `${this.title}, ${this.author}, ${this.pages}, ${this.status}`
 
     }
